@@ -1,0 +1,13 @@
+input {
+    width: 4em;
+}
+
+#hajotelma {
+    position: absolute;
+    bottom: 0;
+}
+
+#hajotelma-outer {
+    position: relative;
+    height: 1.5em;
+}
