@@ -1,2 +1,2 @@
 # Kantaaottamaton
- Kantaaottamaton lukuesitys
+ Kantaaottamaton lukuesitys. Pyörii osoitteessa https://zacchon.github.io/Kantaaottamaton/.
