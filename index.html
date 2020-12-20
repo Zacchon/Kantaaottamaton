@@ -5,7 +5,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="canvas" height="300" width="300"></canvas>
+    <div id="divCanvas">
+        <canvas id="canvas" height="300" width="300"></canvas>
+        <canvas id="canvasTaka" height="300" width="300" class="piilota"></canvas>
+        <input type="checkbox" name="viivat" id="viivat"></input>
+        <label for="viivat">Näytä viivat</label>
+    </div>
     <div>
         <label for="luku">Syötä positiivinen kokonaisluku:</label>
         <input type="number" name="luku" id="luku" min="1"></input>

@@ -1,4 +1,5 @@
 const ctx = document.getElementById("canvas").getContext("2d");
+const ctxTaka = document.getElementById("canvasTaka").getContext("2d");
 const alkuluvut = [2];
 const MAX = 1000000;
 for (let i=3; i<=MAX; i++) {
@@ -17,6 +18,7 @@ for (let i=3; i<=MAX; i++) {
 console.log(alkuluvut);
 const divHajotelma = document.getElementById("hajotelma");
 const lukuKentta = document.getElementById("luku");
+const viivaCheckbox = document.getElementById("viivat");
 
 function luoHajotelma(n) {
     const hajotelma = {};
@@ -45,9 +47,6 @@ function lukuPaivitetty() {
         return;
     }
     const [hajotelma, monesko] = luoHajotelma(luku);
-    console.log(luku);
-    console.log(hajotelma);
-    console.log(monesko);
     const tekijat = Object.getOwnPropertyNames(hajotelma);
     divHajotelma.innerHTML = "";
     for (let i=0; i<tekijat.length; i++) {
@@ -89,12 +88,25 @@ class LukuPuu {
     }
 }
 
+function piirraViivat() {
+    let y = 10;
+    let dy = 30;
+    ctxTaka.strokeStyle = "#000000";
+    ctxTaka.lineWidth = 0.1;
+    ctxTaka.beginPath();
+    while (y < ctxTaka.canvas.height) {
+        ctxTaka.moveTo(0, y);
+        ctxTaka.lineTo(ctxTaka.canvas.width, y);
+        y += dy;
+    }
+    ctxTaka.stroke();
+}
+piirraViivat();
+
 function piirraPuu(lukuPuu, x, y) {
     const dy = 30;
     const dx = 24;
     let xp = x-(lukuPuu.leveys())*dx/2;
-    console.log(lukuPuu);
-    console.log(lukuPuu.leveys());
     for (let i=0; i<lukuPuu.puu.length; i++) {
         xp += lukuPuu.puu[i].leveys()*dx/2;
         ctx.beginPath();
@@ -106,4 +118,9 @@ function piirraPuu(lukuPuu, x, y) {
     }
 }
 
+function vaihdaViivat() {
+    ctxTaka.canvas.classList.toggle("piilota");
+}
+
 lukuKentta.addEventListener("input", lukuPaivitetty);
+viivaCheckbox.addEventListener("input", vaihdaViivat);

@@ -1,4 +1,4 @@
-input {
+#luku {
     width: 4em;
 }
 
@@ -10,4 +10,25 @@ input {
 #hajotelma-outer {
     position: relative;
     height: 1.5em;
+}
+
+#divCanvas {
+    height: 300px;
+}
+
+#viivat {
+    margin-left: 305px;
+}
+
+#canvas {
+    position: absolute;
+}
+
+#canvasTaka {
+    position: absolute;
+    z-index: -1;
+}
+
+.piilota {
+    display: none;
 }
